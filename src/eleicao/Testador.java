@@ -31,7 +31,7 @@ public class Testador {
 			//System.out.printf("[%s] ", linha[2]);//Nome
 			c.setNome(linha[2]);
 			
-			//System.out.printf("[%s] ", linha[3]);//Partido/coligaÃ§Ã£o
+			//System.out.printf("[%s] ", linha[3]);//Partido/coligação
 			c.setPartido_colicagacao(linha[3]);
 			
 			//System.out.printf("[%s] ", linha[4]);//votos
