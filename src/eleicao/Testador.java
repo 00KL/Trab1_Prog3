@@ -1,16 +1,28 @@
 package eleicao;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.lang.*;
+
 
 public class Testador {
+	
+	public static Scanner le_arquivo() {
+		try {
+			Scanner s = new Scanner(new File("test.txt"));
+			return s;
+		}
+		catch (FileNotFoundException e) {
+			// TODO: handle exception	
+			System.out.println("ERROR\n");
+			return null;
+		}
+	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		Scanner s = new Scanner(new File("test.txt"));
+		//Scanner s = new Scanner(new File("test.txt"));
+		Scanner s = le_arquivo();
 		
 		Lista_candidatos lista = new Lista_candidatos();
 		
@@ -46,7 +58,7 @@ public class Testador {
 		}
 		
 		System.out.println(lista);
-
+		s.close();
 	}
 
 }

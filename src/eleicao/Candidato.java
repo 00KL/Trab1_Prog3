@@ -26,18 +26,19 @@ public class Candidato {
 	private Coligacao coligacao;
 	private int votos;
 	
-	public String getPartido() {
+	public Partido getPartido() {
 		return partido;
 	}
 	public void setPartido(String partido) {
-		this.partido = partido;
+		this.partido = new Partido(partido);
 	}
 	
-	public String getColigacao() {
+	public Coligacao getColigacao() {
 		return coligacao;
 	}
 	public void setColigacao(String coligacao) {
-		this.coligacao = coligacao;
+		
+		this.coligacao = new Coligacao(coligacao);
 	}
 	
 
@@ -109,11 +110,9 @@ public class Candidato {
 	public String toString() {
 		String saida = this.getNome();
 		saida += " ("+this.getPartido()+", "+this.getVotos()+" votos)";
-		if (this.getColigacao() != "") {
-			saida += " - Coligação: "+this.getColigacao();			
-		}
+		saida += " - Coligação: "+this.getColigacao();			
 		saida += "\n";
-		//System.out.println(saida);
+		//System.out.println("algo\n");
 		return saida;
 	}
 	
