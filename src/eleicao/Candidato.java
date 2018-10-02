@@ -18,7 +18,7 @@ public class Candidato {
 	
 	private char situacao;//eleito, invalido, nenhum
 	private int colocacao;//colocação nas eleições
-	private int num;//numero do candidadto
+	private int num;//numero do candidato
 	private String nome;
 	//private String partido;
 	private Partido partido;
@@ -69,6 +69,7 @@ public class Candidato {
 									 //havera um char de status na primeira
 									 //posicao
 			this.setSituacao(colocacao.charAt(0));//pegando o status do candidato
+			
 			this.colocacao = Integer.parseInt(colocacao.substring(1, 5));// as demais
 													//posições serão necessariamente
 													//um inteiro

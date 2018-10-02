@@ -1,7 +1,11 @@
 package eleicao;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 
@@ -9,19 +13,23 @@ public class Testador {
 	
 	public static Scanner le_arquivo() {
 		try {
-			Scanner s = new Scanner(new File("test.txt"));
+			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream("test.csv"), "UTF-8"));
+			Scanner s = new Scanner(arqIn);
 			return s;
 		}
 		catch (FileNotFoundException e) {
 			// TODO: handle exception	
 			System.out.println("ERROR\n");
-			return null;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		return null;
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		//Scanner s = new Scanner(new File("test.txt"));
 		Scanner s = le_arquivo();
 		
 		Lista_candidatos lista = new Lista_candidatos();
@@ -55,9 +63,13 @@ public class Testador {
 			
 			
 			lista.setCandidato(c);
+			if(c.getSituacao() == '*') {
+				lista.setEleito(c);
+			}
 		}
 		
-		System.out.println(lista);
+		System.out.println(lista.eleitos());
+		//System.out.println(lista);
 		s.close();
 	}
 

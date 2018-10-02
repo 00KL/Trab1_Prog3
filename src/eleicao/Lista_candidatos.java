@@ -3,13 +3,40 @@ package eleicao;
 import java.util.LinkedList;
 
 public class Lista_candidatos {
+	private int vagas = 0;
 	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
+	private LinkedList<Candidato> eleitos = new LinkedList<Candidato>();
+	private LinkedList<Candidato> maisVotados = new LinkedList<Candidato>();
 	
+	
+	Lista_candidatos() {}
+	
+	//Entradas
 	public void setCandidato(Candidato c) {
 		this.candidatos.add(c);
 	}
+	
+	public void setEleito(Candidato c) {
+		this.eleitos.add(c);
+		this.vagas++;
+	}
+	
+//	public void setMaisVotado(Candidato c) {
+//		if(this.maisVotados.size() == this.vagas) {
+//			
+//		}
+//		
+//		if(this.maisVotados.isEmpty()) {
+//			this.maisVotados.add(c);
+//		}
+//		else if(this.maisVotados.getLast().getVotos() )
+//	}
+	
+	//Tratamento de dados
+//	public void 
 
-	Lista_candidatos() {}
+	
+	//Strings
 	
 	@Override
 	public String toString() {
@@ -23,4 +50,17 @@ public class Lista_candidatos {
 		}
 		return saida;
 	}
+	
+	public String eleitos() {
+		String saida = "Vereadores eleitos:\n";
+		int cont = 0;
+		for (Candidato c : this.eleitos) {
+			cont++;
+			saida += Integer.toString(cont) + " - " + c;
+		}
+		
+		return saida;
+	}
+	
+	
 }
