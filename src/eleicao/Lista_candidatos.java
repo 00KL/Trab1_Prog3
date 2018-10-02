@@ -18,7 +18,15 @@ public class Lista_candidatos {
 	
 	public void setEleito(Candidato c) {
 		this.eleitos.add(c);
-		this.vagas++;
+		this.setVagas(this.getVagas() + 1);
+	}
+	
+	public int getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(int vagas) {
+		this.vagas = vagas;
 	}
 	
 //	public void setMaisVotado(Candidato c) {
@@ -37,7 +45,7 @@ public class Lista_candidatos {
 
 	
 	//Strings
-	
+
 	@Override
 	public String toString() {
 		String saida = "";

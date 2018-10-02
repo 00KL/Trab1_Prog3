@@ -1,36 +1,26 @@
 package eleicao;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.*;
 
 
 public class Testador {
 	
-	public static Scanner le_arquivo() {
-		try {
-			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream("test.csv"), "UTF-8"));
-			Scanner s = new Scanner(arqIn);
-			return s;
-		}
-		catch (FileNotFoundException e) {
-			// TODO: handle exception	
-			System.out.println("ERROR\n");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
+	
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		Scanner s = le_arquivo();
+		Scanner s = IO.le_arquivo();
 		
 		Lista_candidatos lista = new Lista_candidatos();
 		
@@ -51,7 +41,7 @@ public class Testador {
 			//System.out.printf("[%s] ", linha[2]);//Nome
 			c.setNome(linha[2]);
 			
-			//System.out.printf("[%s] ", linha[3]);//Partido/coligação
+			//System.out.printf("[%s] ", linha[3]);//Partido/coligaéˆ¬o
 			c.setPartido_colicagacao(linha[3]);
 			
 			//System.out.printf("[%s] ", linha[4]);//votos
@@ -69,8 +59,13 @@ public class Testador {
 		}
 		
 		System.out.println(lista.eleitos());
+		
+		IO.imprimeSaida(lista);
+		
 		//System.out.println(lista);
 		s.close();
 	}
+	
+	
 
 }
