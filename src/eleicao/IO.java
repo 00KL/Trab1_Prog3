@@ -32,19 +32,21 @@ public class IO {
 	
 	public static void imprimeSaida(Dados data) {
 		try (Writer saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("saida.txt"), "utf-8"))) {
-			imprimeVagas(data.listaCandidatos, saida);
+			imprimeVagas(data.getListaCandidatos(), saida);
 			saida.write('\n');
-			imprimeEleitos(data.listaCandidatos, saida);
+			imprimeEleitos(data.getListaCandidatos(), saida);
 			saida.write('\n');
-			imprimeMaisVotados(data.listaCandidatos, saida);
+			imprimeMaisVotados(data.getListaCandidatos(), saida);
 			saida.write('\n');
-			imprimeEleitosMajoritaria(data.listaCandidatos, saida);
+			imprimeEleitosMajoritaria(data.getListaCandidatos(), saida);
 			saida.write('\n');
-			imprimeBeneficiados(data.listaCandidatos, saida);
+			imprimeBeneficiados(data.getListaCandidatos(), saida);
 			saida.write('\n');
-			imprimeColigacoes(data.listaColigacoes, saida);
+			imprimeColigacoes(data.getListaColigacoes(), saida);
 			saida.write('\n');
-			imprimePartidos(data.listaPartidos, saida);
+			imprimePartidos(data.getListaPartidos(), saida);
+			saida.write('\n');
+			imprimeVotos(data, saida);
 			saida.write('\n');
 			
 	  	} catch (UnsupportedEncodingException e) {
@@ -74,7 +76,7 @@ public class IO {
 	// Candidatos eleitos (sempre indicado partido, número de votos e coligação, se houver)
 	private static void imprimeEleitos(Lista_candidatos lista, Writer saida) {
 		String string = "Vereadores Eleitos:\n";
-		string += lista.eleitos();
+		string += lista.toStringLista(lista.getEleitos());
 		
 		try {
 			saida.write(string);
@@ -87,7 +89,7 @@ public class IO {
 	// Candidatos mais votados dentro do número de vagas
 	private static void imprimeMaisVotados(Lista_candidatos lista, Writer saida) {
 		String string = "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):\n";
-		string += lista.maisVotados();
+		string += lista.toStringListaAteVagas(lista.getMaisVotados());
 		
 		try {
 			saida.write(string);
@@ -101,7 +103,7 @@ public class IO {
 	private static void imprimeEleitosMajoritaria(Lista_candidatos lista, Writer saida) {
 		String string = "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos\n";
 		string += "(com sua posição no ranking de mais votados)\n";
-		string += lista.eleitosMajoritaria();
+		string += lista.toStringLista(lista.getEleitosMajoritaria());
 		
 		try {
 			saida.write(string);
@@ -116,7 +118,7 @@ public class IO {
 	private static void imprimeBeneficiados(Lista_candidatos lista, Writer saida) {
 		String string = "Eleitos, que se beneficiaram no sistema proporcional:\n";
 		string += "(com sua posição no ranking de mais votados)\n";
-		string += lista.eleitosMajoritaria();
+		string += lista.toStringLista(lista.getBeneficiados());
 		
 		try {
 			saida.write(string);
@@ -130,7 +132,7 @@ public class IO {
 	// candidatos eleitos;
 	private static void imprimeColigacoes(Lista_coligacoes lista, Writer saida) {
 		String string = "Votação (nominal) das coligações e número de candidatos eleitos:\n";
-		string += lista.coligacoes();
+		string += lista.toString();
 		
 		try {
 			saida.write(string);
@@ -143,7 +145,7 @@ public class IO {
 	// Votos totalizados por partido, número de candidatos eleitos
 	private static void imprimePartidos(Lista_partidos lista, Writer saida) {
 		String string = "Votação (nominal) dos partidos e número de candidatos eleitos:\n";
-		string += lista.partidos();
+		string += lista.toString();
 		
 		try {
 			saida.write(string);
@@ -155,7 +157,7 @@ public class IO {
 	
 	// Total de votos nominais
 	private static void imprimeVotos(Dados data, Writer saida) {
-		String string = "Total de votos nominais: "+data.votosTotais+"\n";
+		String string = "Total de votos nominais: "+data.getVotosTotais()+"\n";
 		
 		try {
 			saida.write(string);

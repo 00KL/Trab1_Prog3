@@ -22,7 +22,7 @@ public class Testador {
 		// TODO Auto-generated method stub
 		Scanner s = IO.le_arquivo();
 		
-		Lista_candidatos lista = new Lista_candidatos();
+		Dados data = new Dados();
 		
 		while(s.hasNext()) {
 			String linha[] = (s.nextLine().split(";")); // pega ums string em s.next
@@ -35,32 +35,42 @@ public class Testador {
 			//System.out.printf("[%s] ", linha[0]);//Posicao
 			c.setColocacao(linha[0]);
 			
+			
 			//System.out.printf("[%s] ", linha[1]);//Numero
-			c.setNum( Integer.parseInt(linha[1]) );
+			c.setNum(Integer.parseInt(linha[1]) );
 			
 			//System.out.printf("[%s] ", linha[2]);//Nome
 			c.setNome(linha[2]);
 			
 			//System.out.printf("[%s] ", linha[3]);//Partido/coliga鈬o
 			c.setPartido_colicagacao(linha[3]);
+			if (!(data.getListaColigacoes().getColigacoes().contains(c.getColigacao())) && c.getColigacao() != null) {
+				data.getListaColigacoes().getColigacoes().add(c.getColigacao());
+			}
+			if (!(data.getListaPartidos().getPartidos().contains(c.getPartido()))) {
+				data.getListaPartidos().getPartidos().add(c.getPartido());
+			}
 			
 			//System.out.printf("[%s] ", linha[4]);//votos
 			c.setVotos( Float.parseFloat(linha[4]) );
-	
+			c.getColigacao().setVotos(c.getColigacao().getVotos()+c.getVotos());
+			c.getPartido().setVotos(c.getPartido().getVotos()+c.getVotos());
 			
 			//System.out.printf("[%s] ", linha[5]);//validos, dado irrelevante
 												 //segundo trabalhos anteriores
 			
 			
-			lista.setCandidato(c);
+			data.getListaCandidatos().setCandidato(c);
+			data.setVotosTotais(data.getVotosTotais()+c.getVotos());
 			if(c.getSituacao() == '*') {
-				lista.setEleito(c);
+				data.getListaCandidatos().setEleito(c);
+				c.getColigacao().setEleitos(c.getColigacao().getEleitos()+1);
+				c.getPartido().setEleitos(c.getPartido().getEleitos()+1);
 			}
 		}
 		
-		System.out.println(lista.eleitos());
-		
-		IO.imprimeSaida(lista);
+		data.getListaCandidatos().preencheListas();
+		IO.imprimeSaida(data);
 		
 		//System.out.println(lista);
 		s.close();

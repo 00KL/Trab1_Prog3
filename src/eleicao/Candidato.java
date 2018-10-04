@@ -1,23 +1,23 @@
 package eleicao;
 
 public class Candidato {
-//Seq.(i);Núm.;Candidato;Partido/Coligação;Votação;% Válidos
-//	Número de vagas;
-//	• Candidatos eleitos (sempre indicado partido, número de votos e coligação, se houver)
-//	• Candidatos mais votados dentro do número de vagas;
-//	• Candidatos não eleitos e que seriam eleitos se a votação fosse majoritária;
-//	• Candidatos eleitos no sistema proporcional vigente, e que não seriam eleitos se a votação fosse
-//	majoritária, isto é, pelo número de votos apenas que um candidato recebe diretamente;
-//	• Votos totalizados por coligação ou partido (quando um partido não estiver em coligação), número de
+//Seq.(i);Nä¼¹.;Candidato;Partido/Coligaéˆ¬o;Votaéˆ¬o;% Vç–idos
+//	Nä¼¹ero de vagas;
+//	ï¿½ Candidatos eleitos (sempre indicado partido, nä¼¹ero de votos e coligaéˆ¬o, se houver)
+//	ï¿½ Candidatos mais votados dentro do nä¼¹ero de vagas;
+//	ï¿½ Candidatos nç¸Š eleitos e que seriam eleitos se a votaéˆ¬o fosse majoritç–µia;
+//	ï¿½ Candidatos eleitos no sistema proporcional vigente, e que nç¸Š seriam eleitos se a votaéˆ¬o fosse
+//	majoritç–µia, isto ï¿½, pelo nä¼¹ero de votos apenas que um candidato recebe diretamente;
+//	ï¿½ Votos totalizados por coligaéˆ¬o ou partido (quando um partido nç¸Š estiver em coligaéˆ¬o), nä¼¹ero de
 //	candidatos eleitos;
-//	• Votos totalizados por partido, número de candidatos eleitos;
-//	• Total de votos nominais.
+//	ï¿½ Votos totalizados por partido, nä¼¹ero de candidatos eleitos;
+//	ï¿½ Total de votos nominais.
 	
 	//a escolha do formato int foi feita pois na leitura de int 
-	//é converter Strings com '.' e ','
+	//ï¿½ converter Strings com '.' e ','
 	
 	private char situacao;//eleito, invalido, nenhum
-	private int colocacao;//colocação nas eleições
+	private int colocacao;//colocaéˆ¬o nas eleié‹es
 	private int num;//numero do candidato
 	private String nome;
 	//private String partido;
@@ -71,12 +71,12 @@ public class Candidato {
 			this.setSituacao(colocacao.charAt(0));//pegando o status do candidato
 			
 			this.colocacao = Integer.parseInt(colocacao.substring(1, 5));// as demais
-													//posições serão necessariamente
+													//posié‹es serç¸Š necessariamente
 													//um inteiro
 		} else {
-			this.setSituacao('n');//caso não haja situação relevante a ser 
+			this.setSituacao('n');//caso nç¸Š haja situaéˆ¬o relevante a ser 
 								  //setada 'n' significa nenhuma
-			this.colocacao = Integer.parseInt(colocacao);// no caso de não haver
+			this.colocacao = Integer.parseInt(colocacao);// no caso de nç¸Š haver
 													//status basta converter de
 													//string para int
 		}
@@ -102,16 +102,16 @@ public class Candidato {
 	}
 	public void setVotos(float votos) {
 		float ret = votos*1000; //*1000 para tirar o ponto
-								//E regularizar com as saídas futuras
+								//E regularizar com as saå†as futuras
 		this.votos = (int) ret;
 	}
 	
 	@Override
-	//FABRÍCIO GANDINI (PPS, 7611 votos) - Coligação: PPS / PROS
+	//FABRï¾CIO GANDINI (PPS, 7611 votos) - Coligaéˆ¬o: PPS / PROS
 	public String toString() {
 		String saida = this.getNome();
 		saida += " ("+this.getPartido()+", "+this.getVotos()+" votos)";
-		saida += " - Coligação: "+this.getColigacao();			
+		saida += " - Coligaéˆ¬o: "+this.getColigacao();			
 		saida += "\n";
 		//System.out.println("algo\n");
 		return saida;

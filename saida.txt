@@ -1,0 +1,104 @@
+Número de vagas: 15
+
+Vereadores Eleitos:
+1 - FABRÍCIO GANDINI (PPS, 7611votos, 1 candidatos eleitos, 7611  votos) - Coliga鈬o: PPS / PROS
+2 - DENNINHO (PPS, 6167votos, 1 candidatos eleitos, 6167  votos) - Coliga鈬o: PPS / PROS
+3 - DAVI ESMAEL (PSB, 5165votos, 1 candidatos eleitos, 5165  votos) - Coliga鈬o: PSB / PHS
+4 - VINICIUS SIMÕES (PPS, 4403votos, 1 candidatos eleitos, 4403  votos) - Coliga鈬o: PPS / PROS
+5 - NEUZINHA (PSDB, 3652votos, 1 candidatos eleitos, 3652  votos) - Coliga鈬o: PSC / PSDB
+6 - LEONIL (PPS, 3577votos, 1 candidatos eleitos, 3577  votos) - Coliga鈬o: PPS / PROS
+7 - NATHAN MEDEIROS (PSB, 3316votos, 1 candidatos eleitos, 3316  votos) - Coliga鈬o: PSB / PHS
+8 - MAZINHO (PSD, 3090votos, 1 candidatos eleitos, 3090  votos) - Coliga鈬o: SD / PMB / PSD / PRTB / PTC
+9 - DALTO NEVES (PTB, 3083votos, 1 candidatos eleitos, 3083  votos) - Coliga鈬o: 
+10 - MAX DA MATA (PDT, 2339votos, 1 candidatos eleitos, 2339  votos) - Coliga鈬o: 
+11 - WANDERSON MARINHO (PSC, 2208votos, 1 candidatos eleitos, 2208  votos) - Coliga鈬o: PSC / PSDB
+12 - SANDRO PARRINI (PDT, 2023votos, 1 candidatos eleitos, 2023  votos) - Coliga鈬o: 
+13 - LUIZ PAULO AMORIM (PV, 1696votos, 1 candidatos eleitos, 1696  votos) - Coliga鈬o: PP / PV / REDE
+14 - ROBERTO MARTINS (PTB, 1547votos, 1 candidatos eleitos, 1547  votos) - Coliga鈬o: 
+15 - CLEBER FELIX (CLEBINHO) (PP, 1524votos, 1 candidatos eleitos, 1524  votos) - Coliga鈬o: PP / PV / REDE
+
+Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):
+1 - FABRÍCIO GANDINI (PPS, 7611votos, 1 candidatos eleitos, 7611  votos) - Coliga鈬o: PPS / PROS
+2 - DENNINHO (PPS, 6167votos, 1 candidatos eleitos, 6167  votos) - Coliga鈬o: PPS / PROS
+3 - DAVI ESMAEL (PSB, 5165votos, 1 candidatos eleitos, 5165  votos) - Coliga鈬o: PSB / PHS
+4 - VINICIUS SIMÕES (PPS, 4403votos, 1 candidatos eleitos, 4403  votos) - Coliga鈬o: PPS / PROS
+5 - NEUZINHA (PSDB, 3652votos, 1 candidatos eleitos, 3652  votos) - Coliga鈬o: PSC / PSDB
+6 - LEONIL (PPS, 3577votos, 1 candidatos eleitos, 3577  votos) - Coliga鈬o: PPS / PROS
+7 - NATHAN MEDEIROS (PSB, 3316votos, 1 candidatos eleitos, 3316  votos) - Coliga鈬o: PSB / PHS
+8 - MAZINHO (PSD, 3090votos, 1 candidatos eleitos, 3090  votos) - Coliga鈬o: SD / PMB / PSD / PRTB / PTC
+9 - DALTO NEVES (PTB, 3083votos, 1 candidatos eleitos, 3083  votos) - Coliga鈬o: 
+10 - ROGERINHO PINHEIRO (PHS, 2961votos, 0 candidatos eleitos, 2961  votos) - Coliga鈬o: PSB / PHS
+11 - LUISINHO (SD, 2693votos, 0 candidatos eleitos, 2693  votos) - Coliga鈬o: SD / PMB / PSD / PRTB / PTC
+12 - MAX DA MATA (PDT, 2339votos, 1 candidatos eleitos, 2339  votos) - Coliga鈬o: 
+13 - WANDERSON MARINHO (PSC, 2208votos, 1 candidatos eleitos, 2208  votos) - Coliga鈬o: PSC / PSDB
+14 - WAGUINHO ITO (PPS, 2087votos, 0 candidatos eleitos, 2087  votos) - Coliga鈬o: PPS / PROS
+15 - SANDRO PARRINI (PDT, 2023votos, 1 candidatos eleitos, 2023  votos) - Coliga鈬o: 
+
+Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos
+(com sua posição no ranking de mais votados)
+1 - FABRÍCIO GANDINI (PPS, 7611votos, 1 candidatos eleitos, 7611  votos) - Coliga鈬o: PPS / PROS
+2 - DENNINHO (PPS, 6167votos, 1 candidatos eleitos, 6167  votos) - Coliga鈬o: PPS / PROS
+3 - DAVI ESMAEL (PSB, 5165votos, 1 candidatos eleitos, 5165  votos) - Coliga鈬o: PSB / PHS
+4 - VINICIUS SIMÕES (PPS, 4403votos, 1 candidatos eleitos, 4403  votos) - Coliga鈬o: PPS / PROS
+5 - NEUZINHA (PSDB, 3652votos, 1 candidatos eleitos, 3652  votos) - Coliga鈬o: PSC / PSDB
+6 - LEONIL (PPS, 3577votos, 1 candidatos eleitos, 3577  votos) - Coliga鈬o: PPS / PROS
+7 - NATHAN MEDEIROS (PSB, 3316votos, 1 candidatos eleitos, 3316  votos) - Coliga鈬o: PSB / PHS
+8 - MAZINHO (PSD, 3090votos, 1 candidatos eleitos, 3090  votos) - Coliga鈬o: SD / PMB / PSD / PRTB / PTC
+9 - DALTO NEVES (PTB, 3083votos, 1 candidatos eleitos, 3083  votos) - Coliga鈬o: 
+10 - DALTO NEVES (PTB, 3083votos, 1 candidatos eleitos, 3083  votos) - Coliga鈬o: 
+11 - DALTO NEVES (PTB, 3083votos, 1 candidatos eleitos, 3083  votos) - Coliga鈬o: 
+12 - MAX DA MATA (PDT, 2339votos, 1 candidatos eleitos, 2339  votos) - Coliga鈬o: 
+13 - WANDERSON MARINHO (PSC, 2208votos, 1 candidatos eleitos, 2208  votos) - Coliga鈬o: PSC / PSDB
+14 - WANDERSON MARINHO (PSC, 2208votos, 1 candidatos eleitos, 2208  votos) - Coliga鈬o: PSC / PSDB
+15 - SANDRO PARRINI (PDT, 2023votos, 1 candidatos eleitos, 2023  votos) - Coliga鈬o: 
+16 - SANDRO PARRINI (PDT, 2023votos, 1 candidatos eleitos, 2023  votos) - Coliga鈬o: 
+
+Eleitos, que se beneficiaram no sistema proporcional:
+(com sua posição no ranking de mais votados)
+
+Votação (nominal) das coligações e número de candidatos eleitos:
+1 - [Ljava.lang.String;@4554617c1524votos, 1 candidatos eleitos
+2 - null1547votos, 1 candidatos eleitos
+3 - [Ljava.lang.String;@74a144821696votos, 1 candidatos eleitos
+4 - [Ljava.lang.String;@1540e19d1878votos, 0 candidatos eleitos
+5 - null2023votos, 1 candidatos eleitos
+6 - [Ljava.lang.String;@677327b62087votos, 0 candidatos eleitos
+7 - [Ljava.lang.String;@14ae5a52208votos, 1 candidatos eleitos
+8 - null2339votos, 1 candidatos eleitos
+9 - [Ljava.lang.String;@7f31245a2693votos, 0 candidatos eleitos
+10 - [Ljava.lang.String;@6d6f6e282961votos, 0 candidatos eleitos
+11 - null3083votos, 1 candidatos eleitos
+12 - [Ljava.lang.String;@135fbaa43090votos, 1 candidatos eleitos
+13 - [Ljava.lang.String;@45ee12a73138votos, 0 candidatos eleitos
+14 - [Ljava.lang.String;@330bedb43316votos, 1 candidatos eleitos
+15 - [Ljava.lang.String;@2503dbd33577votos, 1 candidatos eleitos
+16 - [Ljava.lang.String;@4b67cf4d3652votos, 1 candidatos eleitos
+17 - [Ljava.lang.String;@7ea987ac4403votos, 1 candidatos eleitos
+18 - [Ljava.lang.String;@12a3a3805165votos, 1 candidatos eleitos
+19 - [Ljava.lang.String;@29453f446167votos, 1 candidatos eleitos
+20 - [Ljava.lang.String;@5cad80867611votos, 1 candidatos eleitos
+
+Votação (nominal) dos partidos e número de candidatos eleitos:
+1 - PP, 1524votos, 1 candidatos eleitos
+2 - PTB, 1547votos, 1 candidatos eleitos
+3 - PV, 1696votos, 1 candidatos eleitos
+4 - PSDB, 1878votos, 0 candidatos eleitos
+5 - PDT, 2023votos, 1 candidatos eleitos
+6 - PPS, 2087votos, 0 candidatos eleitos
+7 - PSC, 2208votos, 1 candidatos eleitos
+8 - PDT, 2339votos, 1 candidatos eleitos
+9 - SD, 2693votos, 0 candidatos eleitos
+10 - PHS, 2961votos, 0 candidatos eleitos
+11 - PTB, 3083votos, 1 candidatos eleitos
+12 - PSD, 3090votos, 1 candidatos eleitos
+13 - PPS, 3138votos, 0 candidatos eleitos
+14 - PSB, 3316votos, 1 candidatos eleitos
+15 - PPS, 3577votos, 1 candidatos eleitos
+16 - PSDB, 3652votos, 1 candidatos eleitos
+17 - PPS, 4403votos, 1 candidatos eleitos
+18 - PSB, 5165votos, 1 candidatos eleitos
+19 - PPS, 6167votos, 1 candidatos eleitos
+20 - PPS, 7611votos, 1 candidatos eleitos
+
+Total de votos nominais: 64158
+
