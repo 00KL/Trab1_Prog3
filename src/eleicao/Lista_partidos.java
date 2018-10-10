@@ -17,7 +17,7 @@ public class Lista_partidos {
 		Collections.sort(this.partidos, new Comparator<Partido>() {
 			@Override
 			public int compare(Partido a, Partido b) {
-				return a.getVotos() - b.getVotos();
+				return b.getVotos() - a.getVotos();
 			}
 		});
 	}

@@ -1,23 +1,29 @@
 package eleicao;
 
+import java.util.*;
+
 public class Coligacao {
-	private String coligacao[];
+	private ArrayList<String> coligacao = new ArrayList<String>();
 	private int votos;
 	private int eleitos;
 	
 	Coligacao(String coligacao){
 		if (coligacao.contains(" / ")) {
-			this.coligacao = coligacao.split(" / ");
+			String aux[] = coligacao.split(" / ");
+			for (String s : aux) {
+				this.coligacao.add(s);
+			}			
 		} else {
-			this.coligacao = null;
+			this.coligacao.add(coligacao);
 		}
 	}
+	
 
-	public String[] getColigacao() {
+	public ArrayList<String> getColigacao() {
 		return coligacao;
 	}
 
-	public void setColigacao(String[] coligacao) {
+	public void setColigacao(ArrayList<String> coligacao) {
 		this.coligacao = coligacao;
 	}
 	
@@ -44,10 +50,10 @@ public class Coligacao {
 			return "";
 		}
 		
-		String retorno = coligacao[0];
+		String retorno = this.coligacao.get(0);
 		
-		for (int i = 1; i < coligacao.length; i++) {
-			retorno += " / " + coligacao[i];
+		for (int i = 1; i < this.coligacao.size(); i++) {
+			retorno += " / " + this.coligacao.get(i);
 		}
 		
 		return retorno;
@@ -55,15 +61,34 @@ public class Coligacao {
 	
 	//1  -Coligação:  PPS  /  PROS,  32411  votos,  4  candidatos  eleitos
 	public String imprimeColigacao() {
-		String saida = "";
-		saida += this.coligacao;
+		if(this.coligacao == null) {
+			return "";
+		}
 		
-		saida += this.getVotos() + "votos, ";
+		String saida = this.coligacao.get(0);
+		
+		for (int i = 1; i < this.coligacao.size(); i++) {
+			saida += " / " + this.coligacao.get(i);
+		}
+		
+		saida += " " + this.getVotos() + " votos, ";
 		saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
 		
 		return saida;
 	}
 	
-	
+	public boolean comparaColigacao(Coligacao col) {
+		for(String s : col.getColigacao()) {
+			if (!(this.coligacao.contains(s))) {
+				return false; 
+			}
+		}
+		for(String s : this.getColigacao()) {
+			if (!(col.coligacao.contains(s))) {
+				return false; 
+			}
+		}
+		return true;
+	}
 	
 }

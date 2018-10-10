@@ -1,28 +1,26 @@
 package eleicao;
 
 public class Candidato {
-//Seq.(i);N伹.;Candidato;Partido/Coliga鈬o;Vota鈬o;% V疝idos
-//	N伹ero de vagas;
-//	� Candidatos eleitos (sempre indicado partido, n伹ero de votos e coliga鈬o, se houver)
-//	� Candidatos mais votados dentro do n伹ero de vagas;
-//	� Candidatos n縊 eleitos e que seriam eleitos se a vota鈬o fosse majorit疵ia;
-//	� Candidatos eleitos no sistema proporcional vigente, e que n縊 seriam eleitos se a vota鈬o fosse
-//	majorit疵ia, isto �, pelo n伹ero de votos apenas que um candidato recebe diretamente;
-//	� Votos totalizados por coliga鈬o ou partido (quando um partido n縊 estiver em coliga鈬o), n伹ero de
+//Seq.(i);N莨ｹ.;Candidato;Partido/Coliga驤ｬo;Vota驤ｬo;% V逍拱dos
+//	N莨ｹero de vagas;
+//	�ｿｽ Candidatos eleitos (sempre indicado partido, n莨ｹero de votos e coliga驤ｬo, se houver)
+//	�ｿｽ Candidatos mais votados dentro do n莨ｹero de vagas;
+//	�ｿｽ Candidatos n邵� eleitos e que seriam eleitos se a vota驤ｬo fosse majorit逍ｵia;
+//	�ｿｽ Candidatos eleitos no sistema proporcional vigente, e que n邵� seriam eleitos se a vota驤ｬo fosse
+//	majorit逍ｵia, isto �ｿｽ, pelo n莨ｹero de votos apenas que um candidato recebe diretamente;
+//	�ｿｽ Votos totalizados por coliga驤ｬo ou partido (quando um partido n邵� estiver em coliga驤ｬo), n莨ｹero de
 //	candidatos eleitos;
-//	� Votos totalizados por partido, n伹ero de candidatos eleitos;
-//	� Total de votos nominais.
+//	�ｿｽ Votos totalizados por partido, n莨ｹero de candidatos eleitos;
+//	�ｿｽ Total de votos nominais.
 	
 	//a escolha do formato int foi feita pois na leitura de int 
-	//� converter Strings com '.' e ','
+	//�ｿｽ converter Strings com '.' e ','
 	
 	private char situacao;//eleito, invalido, nenhum
-	private int colocacao;//coloca鈬o nas elei鋏es
+	private int colocacao;//coloca驤ｬo nas elei驪銃s
 	private int num;//numero do candidato
 	private String nome;
-	//private String partido;
 	private Partido partido;
-	//private String coligacao;
 	private Coligacao coligacao;
 	private int votos;
 	
@@ -32,15 +30,23 @@ public class Candidato {
 	public void setPartido(String partido) {
 		this.partido = new Partido(partido);
 	}
+	public void setPartido(Partido part) {
+		this.partido = part;
+	}
 	
 	public Coligacao getColigacao() {
 		return coligacao;
 	}
 	public void setColigacao(String coligacao) {
-		
-		this.coligacao = new Coligacao(coligacao);
+		if (coligacao.contains(" / ")) {
+			this.coligacao = new Coligacao(coligacao);			
+		} else {
+			this.coligacao = new Coligacao(this.partido.getNome());
+		}
 	}
-	
+	public void setColigacao(Coligacao col) {
+		this.coligacao = col;
+	}
 
 	public void setPartido_colicagacao(String partido_colicagacao) {
 		if (partido_colicagacao.contains(" - ")) {
@@ -49,7 +55,7 @@ public class Candidato {
 			this.setColigacao(divide[1]);
 		} else {
 			this.setPartido(partido_colicagacao);
-			this.setColigacao("");
+			this.coligacao = null;
 		}
 	}
 	
@@ -71,12 +77,12 @@ public class Candidato {
 			this.setSituacao(colocacao.charAt(0));//pegando o status do candidato
 			
 			this.colocacao = Integer.parseInt(colocacao.substring(1, 5));// as demais
-													//posi鋏es ser縊 necessariamente
+													//posi驪銃s ser邵� necessariamente
 													//um inteiro
 		} else {
-			this.setSituacao('n');//caso n縊 haja situa鈬o relevante a ser 
+			this.setSituacao('n');//caso n邵� haja situa驤ｬo relevante a ser 
 								  //setada 'n' significa nenhuma
-			this.colocacao = Integer.parseInt(colocacao);// no caso de n縊 haver
+			this.colocacao = Integer.parseInt(colocacao);// no caso de n邵� haver
 													//status basta converter de
 													//string para int
 		}
@@ -100,21 +106,31 @@ public class Candidato {
 	public int getVotos() {
 		return votos;
 	}
-	public void setVotos(float votos) {
-		float ret = votos*1000; //*1000 para tirar o ponto
-								//E regularizar com as sa冝as futuras
+	public void setVotos(String entrada) {
+		float votos = Float.parseFloat(entrada);
+		float ret;
+		if (entrada.contains(".")) {
+			ret = votos*1000; //*1000 para tirar o ponto
+			//E regularizar com as sa蜀拌s futuras			
+		} else {
+			ret = votos;
+		}
+		
 		this.votos = (int) ret;
 	}
 	
 	@Override
-	//FABRﾍCIO GANDINI (PPS, 7611 votos) - Coliga鈬o: PPS / PROS
+	//FABR�ｾ垢IO GANDINI (PPS, 7611 votos) - Coliga驤ｬo: PPS / PROS
 	public String toString() {
 		String saida = this.getNome();
-		saida += " ("+this.getPartido()+", "+this.getVotos()+" votos)";
-		saida += " - Coliga鈬o: "+this.getColigacao();			
+		saida += " ("+this.partido.imprimeNomePartido()+", "+this.getVotos()+" votos)";
+		if (this.getColigacao() != null) {
+			saida += " - Coliga驤ｬo: "+this.getColigacao();						
+		}
 		saida += "\n";
 		//System.out.println("algo\n");
 		return saida;
 	}
+	
 	
 }

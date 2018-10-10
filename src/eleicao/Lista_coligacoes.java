@@ -17,7 +17,7 @@ public class Lista_coligacoes {
 		Collections.sort(this.coligacoes, new Comparator<Coligacao>() {
 			@Override
 			public int compare(Coligacao a, Coligacao b) {
-				return a.getVotos() - b.getVotos();
+				return b.getVotos() - a.getVotos();
 			}
 		});
 	}
@@ -29,7 +29,7 @@ public class Lista_coligacoes {
 		
 		for (Coligacao c : coligacoes) {
 			i++;
-			saida += Integer.toString(i) + " - " + c.imprimeColigacao() + "\n";
+			saida += Integer.toString(i) + " - Coligação: " + c.imprimeColigacao() + "\n";
 		}
 		
 		return saida;

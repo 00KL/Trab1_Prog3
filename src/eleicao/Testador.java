@@ -1,16 +1,7 @@
 package eleicao;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 import java.util.*;
 
 
@@ -20,7 +11,11 @@ public class Testador {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		Scanner s = IO.le_arquivo();
+		if (args.length != 2) {
+			System.out.println("Informações de entradas inválidas");
+			System.exit(1);
+		}
+		Scanner s = IO.le_arquivo(args[0], args[1]);
 		
 		Dados data = new Dados();
 		
@@ -44,17 +39,52 @@ public class Testador {
 			
 			//System.out.printf("[%s] ", linha[3]);//Partido/coliga鈬o
 			c.setPartido_colicagacao(linha[3]);
-			if (!(data.getListaColigacoes().getColigacoes().contains(c.getColigacao())) && c.getColigacao() != null) {
+			boolean check = false;
+			for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
+				if (c.getColigacao() == null) {
+					check = true;
+					break;
+				}
+				if (c.getColigacao().comparaColigacao(col)) {
+					c.setColigacao(col);
+					check = true;
+					break;
+				}
+			}
+			if (!check) {
 				data.getListaColigacoes().getColigacoes().add(c.getColigacao());
 			}
-			if (!(data.getListaPartidos().getPartidos().contains(c.getPartido()))) {
+			check = false;
+			for (Partido part : data.getListaPartidos().getPartidos()) {
+				if (part.getNome().equals(c.getPartido().getNome())) {
+					c.setPartido(part);
+					check = true;
+					break;
+				}
+			}
+			if (!check) {
 				data.getListaPartidos().getPartidos().add(c.getPartido());
 			}
 			
 			//System.out.printf("[%s] ", linha[4]);//votos
-			c.setVotos( Float.parseFloat(linha[4]) );
-			c.getColigacao().setVotos(c.getColigacao().getVotos()+c.getVotos());
+			c.setVotos(linha[4]);
+			if (c.getColigacao() != null) {
+				c.getColigacao().setVotos(c.getColigacao().getVotos()+c.getVotos());	
+				
+				/*
+				for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
+					if(col.getColigacao().equals(c.getColigacao().getColigacao())) {
+						col.setVotos(col.getVotos()+c.getVotos());
+					}
+				}*/
+			}
 			c.getPartido().setVotos(c.getPartido().getVotos()+c.getVotos());
+			/*
+			for (Partido part : data.getListaPartidos().getPartidos()) {
+				if(part.getNome().equals(c.getPartido().getNome())) {
+					part.setVotos(part.getVotos()+c.getVotos());
+				}
+			}*/
 			
 			//System.out.printf("[%s] ", linha[5]);//validos, dado irrelevante
 												 //segundo trabalhos anteriores
@@ -64,7 +94,9 @@ public class Testador {
 			data.setVotosTotais(data.getVotosTotais()+c.getVotos());
 			if(c.getSituacao() == '*') {
 				data.getListaCandidatos().setEleito(c);
-				c.getColigacao().setEleitos(c.getColigacao().getEleitos()+1);
+				if (c.getColigacao() != null) {
+					c.getColigacao().setEleitos(c.getColigacao().getEleitos()+1);					
+				}
 				c.getPartido().setEleitos(c.getPartido().getEleitos()+1);
 			}
 		}

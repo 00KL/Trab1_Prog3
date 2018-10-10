@@ -13,9 +13,9 @@ import java.io.Writer;
 import java.util.Scanner;
 
 public class IO {
-	public static Scanner le_arquivo() {
+	public static Scanner le_arquivo(String nomeArquivo, String tipoArquivo) {
 		try {
-			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream("test.csv"), "UTF-8"));
+			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream(nomeArquivo), tipoArquivo));
 			Scanner s = new Scanner(arqIn);
 			return s;
 		}
@@ -47,7 +47,6 @@ public class IO {
 			imprimePartidos(data.getListaPartidos(), saida);
 			saida.write('\n');
 			imprimeVotos(data, saida);
-			saida.write('\n');
 			
 	  	} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -76,7 +75,7 @@ public class IO {
 	// Candidatos eleitos (sempre indicado partido, número de votos e coligação, se houver)
 	private static void imprimeEleitos(Lista_candidatos lista, Writer saida) {
 		String string = "Vereadores Eleitos:\n";
-		string += lista.toStringLista(lista.getEleitos());
+		string += lista.toStringListaEleitos(lista.getEleitos());
 		
 		try {
 			saida.write(string);
@@ -89,7 +88,7 @@ public class IO {
 	// Candidatos mais votados dentro do número de vagas
 	private static void imprimeMaisVotados(Lista_candidatos lista, Writer saida) {
 		String string = "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):\n";
-		string += lista.toStringListaAteVagas(lista.getMaisVotados());
+		string += lista.toStringListaMaisVotados(lista.getMaisVotados());
 		
 		try {
 			saida.write(string);
@@ -103,7 +102,7 @@ public class IO {
 	private static void imprimeEleitosMajoritaria(Lista_candidatos lista, Writer saida) {
 		String string = "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos\n";
 		string += "(com sua posição no ranking de mais votados)\n";
-		string += lista.toStringLista(lista.getEleitosMajoritaria());
+		string += lista.toStringListaEleitosMajoritaria(lista);
 		
 		try {
 			saida.write(string);
@@ -118,7 +117,7 @@ public class IO {
 	private static void imprimeBeneficiados(Lista_candidatos lista, Writer saida) {
 		String string = "Eleitos, que se beneficiaram no sistema proporcional:\n";
 		string += "(com sua posição no ranking de mais votados)\n";
-		string += lista.toStringLista(lista.getBeneficiados());
+		string += lista.toStringListaBeneficiados(lista);
 		
 		try {
 			saida.write(string);

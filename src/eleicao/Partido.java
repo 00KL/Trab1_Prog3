@@ -38,8 +38,14 @@ public class Partido {
 	public String toString() {
 		String saida = this.nome + ", ";
 		
-		saida += this.getVotos() + "votos, ";
+		saida += this.getVotos() + " votos, ";
 		saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
+		
+		return saida;
+	}
+	
+	public String imprimeNomePartido () {
+		String saida = this.nome;
 		
 		return saida;
 	}

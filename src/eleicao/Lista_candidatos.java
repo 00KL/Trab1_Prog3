@@ -1,5 +1,7 @@
 package eleicao;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Lista_candidatos {
@@ -70,29 +72,35 @@ public class Lista_candidatos {
 	}
 	
 
+	@SuppressWarnings("unchecked")
 	public void preencheListas () {
-		int aux = this.getVagas()+1;
-		for(int indice = 0; indice < this.candidatos.size() && aux < this.candidatos.size(); indice++) {
-		    if (this.candidatos.get(indice).getVotos() >= this.candidatos.get(aux).getVotos() && indice <= this.getVagas()) {
-		        this.maisVotados.add(this.candidatos.get(indice));
-		        if (indice > this.getVagas()) {
-		        	this.beneficiados.add(this.candidatos.get(indice));
-		        } else {
-		        	this.eleitosMajoritaria.add(this.candidatos.get(indice));
-		        }
-		    } else {
-		    	this.maisVotados.add(this.candidatos.get(aux));
-		        aux ++;
-		        indice -= 1;
-		        if (indice <= this.getVagas()) {
-		        	this.eleitosMajoritaria.add(this.candidatos.get(indice));
-		        }
-		    }
+		this.maisVotados = (LinkedList<Candidato>) this.candidatos.clone();
+		Collections.sort(this.maisVotados, new Comparator<Candidato>() {
+			@Override
+			public int compare(Candidato a, Candidato b) {
+				return b.getVotos() - a.getVotos();
+			}
+		});
+		
+
+		
+		for(Candidato c : this.eleitos) {
+			if (this.maisVotados.indexOf(c)+1 >= this.getVagas()) {
+				this.beneficiados.add(c);
+			}
+		}
+		
+		int cont = 0;
+		for(Candidato c : this.maisVotados) {
+			if (cont < this.beneficiados.size() && !(this.eleitos.contains(c))) {
+				this.eleitosMajoritaria.add(c);
+				cont++;
+			}
 		}
 		
 	}
 	
-	public String toStringLista(LinkedList<Candidato> lista) {
+	public String toStringListaEleitos(LinkedList<Candidato> lista) {
 		String saida = new String();
 		int cont = 0;
 		for (Candidato c : lista) {
@@ -102,7 +110,7 @@ public class Lista_candidatos {
 		return saida;
 	}
 	
-	public String toStringListaAteVagas(LinkedList<Candidato> lista) {
+	public String toStringListaMaisVotados(LinkedList<Candidato> lista) {
 		String saida = new String();
 		int cont = 0;
 		for (int i = 0; i < this.getVagas(); i++) {
@@ -111,6 +119,26 @@ public class Lista_candidatos {
 		}
 		return saida;
 	}
+	
+	public String toStringListaEleitosMajoritaria(Lista_candidatos lista) {
+		String saida = new String();
+		for (Candidato c : lista.eleitosMajoritaria) {
+			saida += Integer.toString(lista.maisVotados.indexOf(c)+1) + " - " + c;
+		}
+		return saida;
+	}
+	
+	public String toStringListaBeneficiados(Lista_candidatos lista) {
+		String saida = new String();
+		for (Candidato c : lista.beneficiados) {
+			saida += Integer.toString(lista.maisVotados.indexOf(c)+1) + " - " + c;
+		}
+		return saida;
+	}
+	
+
+	
+	
 	
 	
 	
