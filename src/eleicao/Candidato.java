@@ -1,23 +1,9 @@
 package eleicao;
 
 public class Candidato {
-//Seq.(i);N莨ｹ.;Candidato;Partido/Coliga驤ｬo;Vota驤ｬo;% V逍拱dos
-//	N莨ｹero de vagas;
-//	�ｿｽ Candidatos eleitos (sempre indicado partido, n莨ｹero de votos e coliga驤ｬo, se houver)
-//	�ｿｽ Candidatos mais votados dentro do n莨ｹero de vagas;
-//	�ｿｽ Candidatos n邵� eleitos e que seriam eleitos se a vota驤ｬo fosse majorit逍ｵia;
-//	�ｿｽ Candidatos eleitos no sistema proporcional vigente, e que n邵� seriam eleitos se a vota驤ｬo fosse
-//	majorit逍ｵia, isto �ｿｽ, pelo n莨ｹero de votos apenas que um candidato recebe diretamente;
-//	�ｿｽ Votos totalizados por coliga驤ｬo ou partido (quando um partido n邵� estiver em coliga驤ｬo), n莨ｹero de
-//	candidatos eleitos;
-//	�ｿｽ Votos totalizados por partido, n莨ｹero de candidatos eleitos;
-//	�ｿｽ Total de votos nominais.
-	
-	//a escolha do formato int foi feita pois na leitura de int 
-	//�ｿｽ converter Strings com '.' e ','
 	
 	private char situacao;//eleito, invalido, nenhum
-	private int colocacao;//coloca驤ｬo nas elei驪銃s
+	private int colocacao;//colocaçao nas eleições
 	private int num;//numero do candidato
 	private String nome;
 	private Partido partido;
@@ -77,12 +63,12 @@ public class Candidato {
 			this.setSituacao(colocacao.charAt(0));//pegando o status do candidato
 			
 			this.colocacao = Integer.parseInt(colocacao.substring(1, 5));// as demais
-													//posi驪銃s ser邵� necessariamente
+													//posiçoes serão necessariamente
 													//um inteiro
 		} else {
-			this.setSituacao('n');//caso n邵� haja situa驤ｬo relevante a ser 
+			this.setSituacao('n');//caso não haja situação relevante a ser 
 								  //setada 'n' significa nenhuma
-			this.colocacao = Integer.parseInt(colocacao);// no caso de n邵� haver
+			this.colocacao = Integer.parseInt(colocacao);// no caso de não haver
 													//status basta converter de
 													//string para int
 		}
@@ -111,7 +97,6 @@ public class Candidato {
 	}
 	
 	@Override
-	//FABR�ｾ垢IO GANDINI (PPS, 7611 votos) - Coliga驤ｬo: PPS / PROS
 	public String toString() {
 		String saida = this.getNome();
 		saida += " ("+this.partido.imprimeNomePartido()+", "+this.getVotos()+" votos)";
@@ -119,7 +104,6 @@ public class Candidato {
 			saida += " - Coliga驤ｬo: "+this.getColigacao();						
 		}
 		saida += "\n";
-		//System.out.println("algo\n");
 		return saida;
 	}
 	

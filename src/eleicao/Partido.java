@@ -33,7 +33,7 @@ public class Partido {
 		this.eleitos = eleitos;
 	}
 
-	//1 -PPS,  31036  votos,  4  candidatos  eleito
+	
 	@Override
 	public String toString() {
 		String saida = this.nome + ", ";
