@@ -26,22 +26,16 @@ public class Testador {
 			//Anuncia variavel Candidato
 			Candidato c = new Candidato();
 			c.setColocacao(s.next());
-			//System.out.println(c.getColocacao());
 			
 			c.setNum(s.nextInt());
-			//System.out.println(c.getNum());
 			
 			c.setNome(s.next());
-			//System.out.println(c.getNome());
 			
 			c.setPartido_colicagacao(s.next());
 			c.arrumaPartidoEColigacao(data);
-			//System.out.println(c.getPartido());
-			//System.out.println(c.getColigacao());
 			
 			c.setVotos(s.nextInt());
 			c.arrumaVotosPartidoEColigacao();
-			//System.out.println(c.getVotos());
 			
 			s.nextLine();
 			
@@ -50,9 +44,7 @@ public class Testador {
 		
 		data.getListaCandidatos().preencheListas();
 		IO.imprimeSaidaPadrao(data);
-		// IO.imprimeSaida(data); // Impressão em arquivo
 		
-		//System.out.println(lista);
 		s.close();
 	}
 }
