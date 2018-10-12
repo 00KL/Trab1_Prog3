@@ -106,17 +106,8 @@ public class Candidato {
 	public int getVotos() {
 		return votos;
 	}
-	public void setVotos(String entrada) {
-		float votos = Float.parseFloat(entrada);
-		float ret;
-		if (entrada.contains(".")) {
-			ret = votos*1000; //*1000 para tirar o ponto
-			//E regularizar com as sa蜀拌s futuras			
-		} else {
-			ret = votos;
-		}
-		
-		this.votos = (int) ret;
+	public void setVotos(int entrada) {
+		this.votos = entrada;
 	}
 	
 	@Override

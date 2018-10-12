@@ -16,29 +16,30 @@ public class Testador {
 			System.exit(1);
 		}
 		Scanner s = IO.le_arquivo(args[0], args[1]);
+		Locale ptBR = new Locale("pt", "BR");
+		s.useLocale(ptBR);
+		s.useDelimiter(";");
 		
 		Dados data = new Dados();
 		
 		while(s.hasNext()) {
-			String linha[] = (s.nextLine().split(";")); // pega ums string em s.next
-													//divide ela usando os ";"
-													//cada String entre os ";"
-													//ocupa uma string diferente em linha[]
 			
 			//Anuncia variavel Candidato
 			Candidato c = new Candidato();
 			//System.out.printf("[%s] ", linha[0]);//Posicao
-			c.setColocacao(linha[0]);
-			
+			c.setColocacao(s.next());
+			System.out.println(c.getColocacao());
 			
 			//System.out.printf("[%s] ", linha[1]);//Numero
-			c.setNum(Integer.parseInt(linha[1]) );
+			c.setNum(s.nextInt());
+			System.out.println(c.getNum());
 			
 			//System.out.printf("[%s] ", linha[2]);//Nome
-			c.setNome(linha[2]);
+			c.setNome(s.next());
+			System.out.println(c.getNome());
 			
 			//System.out.printf("[%s] ", linha[3]);//Partido/coliga鈬o
-			c.setPartido_colicagacao(linha[3]);
+			c.setPartido_colicagacao(s.next());
 			boolean check = false;
 			for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
 				if (c.getColigacao() == null) {
@@ -65,30 +66,18 @@ public class Testador {
 			if (!check) {
 				data.getListaPartidos().getPartidos().add(c.getPartido());
 			}
+			System.out.println(c.getPartido());
+			System.out.println(c.getColigacao());
 			
 			//System.out.printf("[%s] ", linha[4]);//votos
-			c.setVotos(linha[4]);
+			c.setVotos(s.nextInt());
 			if (c.getColigacao() != null) {
 				c.getColigacao().setVotos(c.getColigacao().getVotos()+c.getVotos());	
-				
-				/*
-				for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
-					if(col.getColigacao().equals(c.getColigacao().getColigacao())) {
-						col.setVotos(col.getVotos()+c.getVotos());
-					}
-				}*/
 			}
 			c.getPartido().setVotos(c.getPartido().getVotos()+c.getVotos());
-			/*
-			for (Partido part : data.getListaPartidos().getPartidos()) {
-				if(part.getNome().equals(c.getPartido().getNome())) {
-					part.setVotos(part.getVotos()+c.getVotos());
-				}
-			}*/
+			System.out.println(c.getVotos());
 			
-			//System.out.printf("[%s] ", linha[5]);//validos, dado irrelevante
-												 //segundo trabalhos anteriores
-			
+			s.nextLine();
 			
 			data.getListaCandidatos().setCandidato(c);
 			data.setVotosTotais(data.getVotosTotais()+c.getVotos());
@@ -99,10 +88,13 @@ public class Testador {
 				}
 				c.getPartido().setEleitos(c.getPartido().getEleitos()+1);
 			}
+			
+			
 		}
 		
 		data.getListaCandidatos().preencheListas();
-		IO.imprimeSaida(data);
+		IO.imprimeSaidaPadrao(data);
+		// IO.imprimeSaida(data); // Impressão em arquivo
 		
 		//System.out.println(lista);
 		s.close();
