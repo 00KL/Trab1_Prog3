@@ -123,5 +123,51 @@ public class Candidato {
 		return saida;
 	}
 	
+	public void arrumaPartidoEColigacao (Dados data) {
+		boolean check = false;
+		for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
+			if (this.getColigacao() == null) {
+				check = true;
+				break;
+			}
+			if (this.getColigacao().comparaColigacao(col)) {
+				this.setColigacao(col);
+				check = true;
+				break;
+			}
+		}
+		if (!check) {
+			data.getListaColigacoes().getColigacoes().add(this.getColigacao());
+		}
+		check = false;
+		for (Partido part : data.getListaPartidos().getPartidos()) {
+			if (part.getNome().equals(this.getPartido().getNome())) {
+				this.setPartido(part);
+				check = true;
+				break;
+			}
+		}
+		if (!check) {
+			data.getListaPartidos().getPartidos().add(this.getPartido());
+		}	
+	}
 	
+	public void arrumaVotosPartidoEColigacao() {
+		if (this.getColigacao() != null) {
+			this.getColigacao().setVotos(this.getColigacao().getVotos()+this.getVotos());	
+		}
+		this.getPartido().setVotos(this.getPartido().getVotos()+this.getVotos());
+	}
+	
+	public void arrumaEleito(Dados data) {
+		data.getListaCandidatos().setCandidato(this);
+		data.setVotosTotais(data.getVotosTotais()+this.getVotos());
+		if(this.getSituacao() == '*') {
+			data.getListaCandidatos().setEleito(this);
+			if (this.getColigacao() != null) {
+				this.getColigacao().setEleitos(this.getColigacao().getEleitos()+1);					
+			}
+			this.getPartido().setEleitos(this.getPartido().getEleitos()+1);
+		}
+	}
 }

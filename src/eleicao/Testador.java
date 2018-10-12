@@ -23,73 +23,29 @@ public class Testador {
 		Dados data = new Dados();
 		
 		while(s.hasNext()) {
-			
 			//Anuncia variavel Candidato
 			Candidato c = new Candidato();
-			//System.out.printf("[%s] ", linha[0]);//Posicao
 			c.setColocacao(s.next());
-			System.out.println(c.getColocacao());
+			//System.out.println(c.getColocacao());
 			
-			//System.out.printf("[%s] ", linha[1]);//Numero
 			c.setNum(s.nextInt());
-			System.out.println(c.getNum());
+			//System.out.println(c.getNum());
 			
-			//System.out.printf("[%s] ", linha[2]);//Nome
 			c.setNome(s.next());
-			System.out.println(c.getNome());
+			//System.out.println(c.getNome());
 			
-			//System.out.printf("[%s] ", linha[3]);//Partido/coliga鈬o
 			c.setPartido_colicagacao(s.next());
-			boolean check = false;
-			for (Coligacao col : data.getListaColigacoes().getColigacoes()) {
-				if (c.getColigacao() == null) {
-					check = true;
-					break;
-				}
-				if (c.getColigacao().comparaColigacao(col)) {
-					c.setColigacao(col);
-					check = true;
-					break;
-				}
-			}
-			if (!check) {
-				data.getListaColigacoes().getColigacoes().add(c.getColigacao());
-			}
-			check = false;
-			for (Partido part : data.getListaPartidos().getPartidos()) {
-				if (part.getNome().equals(c.getPartido().getNome())) {
-					c.setPartido(part);
-					check = true;
-					break;
-				}
-			}
-			if (!check) {
-				data.getListaPartidos().getPartidos().add(c.getPartido());
-			}
-			System.out.println(c.getPartido());
-			System.out.println(c.getColigacao());
+			c.arrumaPartidoEColigacao(data);
+			//System.out.println(c.getPartido());
+			//System.out.println(c.getColigacao());
 			
-			//System.out.printf("[%s] ", linha[4]);//votos
 			c.setVotos(s.nextInt());
-			if (c.getColigacao() != null) {
-				c.getColigacao().setVotos(c.getColigacao().getVotos()+c.getVotos());	
-			}
-			c.getPartido().setVotos(c.getPartido().getVotos()+c.getVotos());
-			System.out.println(c.getVotos());
+			c.arrumaVotosPartidoEColigacao();
+			//System.out.println(c.getVotos());
 			
 			s.nextLine();
 			
-			data.getListaCandidatos().setCandidato(c);
-			data.setVotosTotais(data.getVotosTotais()+c.getVotos());
-			if(c.getSituacao() == '*') {
-				data.getListaCandidatos().setEleito(c);
-				if (c.getColigacao() != null) {
-					c.getColigacao().setEleitos(c.getColigacao().getEleitos()+1);					
-				}
-				c.getPartido().setEleitos(c.getPartido().getEleitos()+1);
-			}
-			
-			
+			c.arrumaEleito(data);
 		}
 		
 		data.getListaCandidatos().preencheListas();
@@ -99,7 +55,4 @@ public class Testador {
 		//System.out.println(lista);
 		s.close();
 	}
-	
-	
-
 }
