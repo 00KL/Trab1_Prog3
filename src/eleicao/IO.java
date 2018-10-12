@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class IO {
@@ -17,6 +18,7 @@ public class IO {
 		try {
 			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream(nomeArquivo), tipoArquivo));
 			Scanner s = new Scanner(arqIn);
+			//s.useLocale(new Locale("pt", "BR"));
 			return s;
 		}
 		catch (FileNotFoundException e) {
@@ -63,6 +65,7 @@ public class IO {
 	// Número de vagas
 	private static void imprimeVagas(Lista_candidatos lista, Writer saida) {
 		String string = "Número de vagas: "+lista.getVagas()+"\n";
+		System.out.print(string);
 		
 		try {
 			saida.write(string);
@@ -76,6 +79,7 @@ public class IO {
 	private static void imprimeEleitos(Lista_candidatos lista, Writer saida) {
 		String string = "Vereadores Eleitos:\n";
 		string += lista.toStringListaEleitos(lista.getEleitos());
+		System.out.print(string);
 		
 		try {
 			saida.write(string);
@@ -89,7 +93,7 @@ public class IO {
 	private static void imprimeMaisVotados(Lista_candidatos lista, Writer saida) {
 		String string = "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):\n";
 		string += lista.toStringListaMaisVotados(lista.getMaisVotados());
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
@@ -103,7 +107,7 @@ public class IO {
 		String string = "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos\n";
 		string += "(com sua posição no ranking de mais votados)\n";
 		string += lista.toStringListaEleitosMajoritaria(lista);
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
@@ -118,7 +122,7 @@ public class IO {
 		String string = "Eleitos, que se beneficiaram no sistema proporcional:\n";
 		string += "(com sua posição no ranking de mais votados)\n";
 		string += lista.toStringListaBeneficiados(lista);
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
@@ -132,7 +136,7 @@ public class IO {
 	private static void imprimeColigacoes(Lista_coligacoes lista, Writer saida) {
 		String string = "Votação (nominal) das coligações e número de candidatos eleitos:\n";
 		string += lista.toString();
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
@@ -145,7 +149,7 @@ public class IO {
 	private static void imprimePartidos(Lista_partidos lista, Writer saida) {
 		String string = "Votação (nominal) dos partidos e número de candidatos eleitos:\n";
 		string += lista.toString();
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
@@ -157,7 +161,7 @@ public class IO {
 	// Total de votos nominais
 	private static void imprimeVotos(Dados data, Writer saida) {
 		String string = "Total de votos nominais: "+data.getVotosTotais()+"\n";
-		
+		System.out.print(string);
 		try {
 			saida.write(string);
 		} catch (IOException e) {
