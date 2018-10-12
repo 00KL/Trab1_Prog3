@@ -38,8 +38,8 @@
 	<!--Limpeza.  -->
 	<target  name="clean"  description="Limpa  o  projeto,  deixando  apenas  o  código-fonte."  >
 		<delete  dir="${bin}"/>
-			<delete>
+			<!--delete>
 				<fileset  dir="."  includes="*.csv"/>
-			</delete>
+			</delete-->
 	</target>
 </project>
