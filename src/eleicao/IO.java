@@ -25,9 +25,9 @@ public class IO {
 		
 		return null;
 	}
-	
+
 	public static void imprimeSaidaPadrao(Dados data) {
-		String impressao = new String();
+		String impressao;
 		
 		impressao = "Número de vagas: "+data.getListaCandidatos().getVagas()+"\n";
 		System.out.println(impressao);

@@ -101,9 +101,10 @@ public class Candidato {
 		String saida = this.getNome();
 		saida += " ("+this.partido.imprimeNomePartido()+", "+this.getVotos()+" votos)";
 		if (this.getColigacao() != null) {
-			saida += " - Coliga驤ｬo: "+this.getColigacao();						
+			saida += " - Coligação: "+this.getColigacao();						
 		}
 		saida += "\n";
+		
 		return saida;
 	}
 	

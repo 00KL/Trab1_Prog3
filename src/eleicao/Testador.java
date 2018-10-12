@@ -2,6 +2,7 @@ package eleicao;
 
 
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.*;
 
 
@@ -43,6 +44,7 @@ public class Testador {
 		}
 		
 		data.getListaCandidatos().preencheListas();
+		
 		IO.imprimeSaidaPadrao(data);
 		
 		s.close();

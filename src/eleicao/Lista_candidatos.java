@@ -48,7 +48,6 @@ public class Lista_candidatos {
 			if (c.getSituacao() == '*') {
 				saida += c.getColocacao()+"- ";
 			}
-			//System.out.printf("Tentando imprimir %s\n", c.getNome());
 			saida += c.toString();
 		}
 		return saida;
