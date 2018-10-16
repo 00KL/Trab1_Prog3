@@ -22,6 +22,9 @@ public class Testador {
 		s.useDelimiter(";");
 		
 		Dados data = new Dados();
+
+		//Pula a primeria linha
+		s.nextLine();
 		
 		while(s.hasNext()) {
 			//Anuncia variavel Candidato

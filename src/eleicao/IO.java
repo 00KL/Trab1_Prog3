@@ -32,7 +32,7 @@ public class IO {
 		impressao = "Número de vagas: "+data.getListaCandidatos().getVagas()+"\n";
 		System.out.println(impressao);
 		
-		impressao = "Vereadores Eleitos:\n";
+		impressao = "Vereadores eleitos:\n";
 		impressao += data.getListaCandidatos().toStringListaEleitos(data.getListaCandidatos().getEleitos());
 		System.out.println(impressao);
 		
@@ -40,12 +40,12 @@ public class IO {
 		impressao += data.getListaCandidatos().toStringListaMaisVotados(data.getListaCandidatos().getMaisVotados());
 		System.out.println(impressao);
 		
-		impressao = "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos\n";
+		impressao = "Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n";
 		impressao += "(com sua posição no ranking de mais votados)\n";
 		impressao += data.getListaCandidatos().toStringListaEleitosMajoritaria(data.getListaCandidatos());
 		System.out.println(impressao);
 		
-		impressao = "Eleitos, que se beneficiaram no sistema proporcional:\n";
+		impressao = "Eleitos, que se beneficiaram do sistema proporcional:\n";
 		impressao += "(com sua posição no ranking de mais votados)\n";
 		impressao += data.getListaCandidatos().toStringListaBeneficiados(data.getListaCandidatos());
 		System.out.println(impressao);

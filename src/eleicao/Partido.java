@@ -39,7 +39,14 @@ public class Partido {
 		String saida = this.nome + ", ";
 		
 		saida += this.getVotos() + " votos, ";
-		saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
+		
+		if(this.getEleitos() > 1){
+			saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
+		}
+		else{
+			saida += Integer.toString(this.getEleitos()) + " candidato eleito";
+		}
+		
 		
 		return saida;
 	}

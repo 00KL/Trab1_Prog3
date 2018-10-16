@@ -71,8 +71,14 @@ public class Coligacao {
 			saida += " / " + this.coligacao.get(i);
 		}
 		
-		saida += " " + this.getVotos() + " votos, ";
-		saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
+		saida += ", " + this.getVotos() + " votos, ";
+
+		if(this.getEleitos() > 1){
+			saida += Integer.toString(this.getEleitos()) + " candidatos eleitos";
+		}
+		else{
+			saida += Integer.toString(this.getEleitos()) + " candidato eleito";
+		}
 		
 		return saida;
 	}
