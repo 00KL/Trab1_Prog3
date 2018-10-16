@@ -41,7 +41,7 @@ public class Candidato {
 			this.setColigacao(divide[1]);
 		} else {
 			this.setPartido(partido_colicagacao);
-			this.coligacao = null;
+			this.coligacao = new Coligacao(partido_colicagacao);
 		}
 	}
 	
@@ -100,7 +100,9 @@ public class Candidato {
 	public String toString() {
 		String saida = this.getNome();
 		saida += " ("+this.partido.imprimeNomePartido()+", "+this.getVotos()+" votos)";
-		if (this.getColigacao() != null) {
+
+
+		if (this.getColigacao().getColigacao().get(0) != this.getPartido().getNome()) {
 			saida += " - Coligação: "+this.getColigacao();						
 		}
 		saida += "\n";
