@@ -71,9 +71,12 @@ public class Lista_candidatos {
 	}
 	
 
-	@SuppressWarnings("unchecked")
 	public void preencheListas () {
-		this.maisVotados = (LinkedList<Candidato>) this.candidatos.clone();
+		for (Candidato c : this.candidatos) {
+			this.maisVotados.add(c);
+		}
+
+		
 		Collections.sort(this.maisVotados, new Comparator<Candidato>() {
 			@Override
 			public int compare(Candidato a, Candidato b) {

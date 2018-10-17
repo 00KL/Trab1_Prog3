@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class IO {
-	public static Scanner le_arquivo(String nomeArquivo, String tipoArquivo) {
+	public static Scanner leArquivo(String nomeArquivo, String tipoArquivo) {
 		try {
 			BufferedReader arqIn = new BufferedReader(new InputStreamReader(new FileInputStream(nomeArquivo), tipoArquivo));
 			Scanner s = new Scanner(arqIn);

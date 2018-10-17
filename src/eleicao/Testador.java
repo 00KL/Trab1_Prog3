@@ -2,7 +2,6 @@ package eleicao;
 
 
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.*;
 
 
@@ -16,7 +15,7 @@ public class Testador {
 			System.out.println("Informações de entradas inválidas");
 			System.exit(1);
 		}
-		Scanner s = IO.le_arquivo(args[0], args[1]);
+		Scanner s = IO.leArquivo(args[0], args[1]);
 		Locale ptBR = new Locale("pt", "BR");
 		s.useLocale(ptBR);
 		s.useDelimiter(";");
